@@ -1,1 +1,1 @@
-import './blocks/rtPostsReact/frontend'
+import './blocks/rtThePostGrid/frontend'
