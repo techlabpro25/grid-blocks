@@ -7,7 +7,7 @@ const RtThePostGrid = (props) => {
     const [data, setData] = useState([]);
     const [perPage, setPerPage] = useState(props.limit || 10);
     useEffect(() => {
-        apiFetch({render_callback: '/wp/v2/posts?per_page='+perPage}).then((posts) => {
+        apiFetch({path: '/wp/v2/posts?per_page=10'}).then((posts) => {
             setData(posts);
         });
     }, [perPage]);

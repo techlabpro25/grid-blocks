@@ -12,6 +12,10 @@ import apiFetch from "@wordpress/api-fetch";
 
 const Query = (props) => {
     const [pt, setPt] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [term_cat, setTerm_cat] = useState([]);
+    const [post_term, setPost_term] = useState([]);
+    const [authors, setAuthors] = useState([]);
     const { query } = props.attr.attributes
     
     const operator = [
@@ -51,6 +55,7 @@ const Query = (props) => {
             value: "menu_order"
         }
     ]
+    
     const publish_type = [
         {
             label: "Publish",
@@ -90,34 +95,75 @@ const Query = (props) => {
         }
     ]
 
-    // temporary author
-    const author = [
-        {
-            label: "John Snow",
-            value: 1
-        },
+    const typefilter= [
+        "wp_template",
+        "attachment",
+        "wp_block"
     ]
 
+    // Post Type
     useEffect(()=>{
         apiFetch({path: '/wp/v2/types'}).then((types) => {
-            var newarrobj = Object.values(types);
-            newarrobj.map((item) =>{
-                setPt({
-                    ...pt,
-                    "label": item.name,
-                    "value": item.slug
-                })
-            })     
+            var newarrobj = Object.keys(types);
+            setPt(newarrobj.map((item_key) =>{
+                // if(!typefilter.includes(item_key)){
+                    return {
+                        label: types[item_key].name,
+                        value: types[item_key].slug
+                    }
+                // }
+                
+            }));
         });
-        console.log();
-    }, [query.post_type])
+        setLoading(false);
+    }, []);
+
+    // Get terms by post 
+    useEffect(()=>{
+        apiFetch({path: '/rt/v1/post/categories'}).then((term) => {
+            setPost_term(term.map((item_key) =>{
+                    return {
+                        label: item_key.label,
+                        value: item_key.name
+                    }
+                
+            }));
+        });
+    }, [pt]);
+
+    // Get Authors
+    useEffect(()=>{
+        apiFetch({path: '/wp/v2/users'}).then((user) => {
+            setAuthors(user.map((item_key) =>{
+                    return {
+                        label: item_key.name,
+                        value: item_key.id
+                    }
+                
+            }));
+        });
+    }, []);
+
+
+    // Get Categories by Taxonomy
+    useEffect(()=>{
+        apiFetch({path: '/rt/v1/categories/category'}).then((category) => {
+            setTerm_cat(category.map((item_key) =>{
+                    return {
+                        label: item_key.name,
+                        value: item_key.id
+                    }
+                
+            }));
+        });
+    }, []);
 
     return (
         <>
             <SelectControl
                 label="Post Type:"
                 value={query.post_type}
-                options= {operator}
+                options= {pt}
                 onChange={
                     (value) => props.attr.setAttributes({ query: { ...query, "post_type": value } })
                 }
@@ -173,13 +219,13 @@ const Query = (props) => {
                             onChange={(value) => props.attr.setAttributes({ query: { ...query, "category_bool": value } })}
                         />
 
-                        {
+                        {  
                             (query.taxonomy_bool && query.category_bool) ? (
                                 <div className="tax_second_child">
                                     <SelectControl
                                         label="Categories:"
                                         value={query.category}
-                                        options={operator}
+                                        options={term_cat}
                                         multiple={true}
                                         onChange={(value) => props.attr.setAttributes({ query: { ...query, "category": value } })}
                                     />
@@ -290,7 +336,7 @@ const Query = (props) => {
                         label="Author:"
                         value={query.author}
                         multiple={true}
-                        options={author}
+                        options={authors}
                         onChange={(value) => props.attr.setAttributes({ query: { ...query, "author": value } })}
                     />
                 ) : ("")

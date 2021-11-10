@@ -9,6 +9,9 @@ use RT\RadiusBlocks\Helpers\Fns;
 use RT\RadiusBlocks\Controllers\AssetsController;
 use RT\RadiusBlocks\Helpers\Installer;
 use RT\RadiusBlocks\Models\Dependencies;
+use RT\RadiusBlocks\API\Get_Categories;
+use RT\RadiusBlocks\API\Get_Terms;
+use RT\RadiusBlocks\API\All_Post;
 
 final class RadiusBlocks
 {
@@ -28,6 +31,9 @@ final class RadiusBlocks
         $assets->init();
         $this->init_hooks();
         //}
+        new Get_Categories();
+        new Get_Terms();
+        new All_Post();
     }
 
     /**
