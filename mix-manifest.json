@@ -7,5 +7,6 @@
     "/dist/blocks.build.asset.php": "/dist/blocks.build.asset.php",
     "/dist/frontend.js": "/dist/frontend.js",
     "/dist/frontend.asset.php": "/dist/frontend.asset.php",
+    "/assets/css/front.css": "/assets/css/front.css",
     "/assets/css/admin.css": "/assets/css/admin.css"
 }

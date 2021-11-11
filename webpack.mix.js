@@ -81,7 +81,8 @@ if (
 	mix
 		.js(`src/admin.js`, "assets/js/admin.js")
 		.js(`src/deactivator.js`, "assets/js/deactivator.build.js")
-		.sass("src/scss/admin.scss", "assets/css/admin.css");
+		.sass("src/scss/admin.scss", "assets/css/admin.css")
+		.sass("src/scss/front.scss", "assets/css/front.css");
 
 }
 // module.exports = {
