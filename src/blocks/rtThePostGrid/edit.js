@@ -92,7 +92,7 @@ export default function Edit(props) {
         if (!attributes.limit) {
             return;
         }
-        apiFetch({path: '/rt/v1/query?post_type=post&post_per_page=5&include=628,629,630&exclude=625,626&order_by=ID&order=ASC&status=publish&author=1'}).then((posts) => {
+        apiFetch({path: '/rt/v1/query?post_type=post&post_per_page&include=628,629,630&exclude=625,626&order_by=ID&order=ASC&status=publish&author=1'}).then((posts) => {
             setData(posts);
         });
     }, []);

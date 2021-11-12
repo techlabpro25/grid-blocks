@@ -238,6 +238,10 @@ const attributes = {
     section_margin:{
         type:"object"
     },
+    layout:{
+        type: "string",
+        default: "grid1"
+    }
 };
 
 export default attributes;
