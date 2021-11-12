@@ -8,7 +8,7 @@ import {
 function Excerpt(props) {
     const { excerpt } = props.attr.attributes
     return (
-        <PanelBody title="Excerpt">
+        <PanelBody title="Excerpt" initialOpen={false}>
             <NumberControl
                 label="Excerpt Limit"
                 value={ excerpt.limit }

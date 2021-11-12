@@ -13,7 +13,7 @@ import { useState, useEffect } from '@wordpress/element';
 function Meta(props) {
     const { meta_style} = props.attr.attributes
     return (
-        <PanelBody title="Meta">
+        <PanelBody title="Meta" initialOpen={false}>
             <Text>
                 Color:
             </Text>

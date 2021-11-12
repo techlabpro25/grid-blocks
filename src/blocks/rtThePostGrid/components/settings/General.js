@@ -17,7 +17,7 @@ function General(props) {
 	
 
     return (
-        <PanelBody title="General" className="general_tab">
+        <PanelBody title="General" className="general_tab" initialOpen={true}>
             <ToggleControl
                 label="Heading"
                 checked={ general.heading }

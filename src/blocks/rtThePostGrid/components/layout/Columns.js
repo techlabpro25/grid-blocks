@@ -29,7 +29,7 @@ function Columns(props) {
         }
     ]
     return (
-        <PanelBody title="Columns">
+        <PanelBody title="Columns" initialOpen={false}>
             <SelectControl
                 label="Columns (Desktop):"
                 options={column}

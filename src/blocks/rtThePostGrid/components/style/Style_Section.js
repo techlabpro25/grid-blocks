@@ -11,7 +11,7 @@ import {useState} from '@wordpress/element';
 function Style_Section(props) {
     const { section, section_padding, section_margin } = props.attr.attributes
     return (
-        <PanelBody title="Full Area / Section">
+        <PanelBody title="Full Area / Section" initialOpen={false}>
             <Text>
                 Background Color:
             </Text>

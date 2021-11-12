@@ -11,7 +11,7 @@ function Category(props) {
     const { category } = props.attr.attributes
     const [hasicon, useHasicon] = useState(true)
     return (
-        <PanelBody title="Category">
+        <PanelBody title="Category" initialOpen={false}>
             <SelectControl
                 label="Title Position:"
                 value={ category.position }

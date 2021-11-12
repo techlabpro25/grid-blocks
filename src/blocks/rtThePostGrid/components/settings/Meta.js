@@ -32,7 +32,7 @@ function Meta(props) {
     ]
 
     return (
-        <PanelBody title="Meta">
+        <PanelBody title="Meta" initialOpen={false}>
             <SelectControl
                 label="Position"
                 value={ meta.position }

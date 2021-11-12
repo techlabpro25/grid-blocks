@@ -11,7 +11,7 @@ import {
 function Excerpt(props) {
     const { excerpt_style } = props.attr.attributes
     return (
-        <PanelBody title="Excerpt">
+        <PanelBody title="Excerpt" initialOpen={false}>
             
             <Text>
                 Color:

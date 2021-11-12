@@ -11,7 +11,7 @@ import {
 function Title(props) {
     const {title, title_style} = props.attr.attributes
     return (
-        <PanelBody title="Title">
+        <PanelBody title="Title" initialOpen={false}>
             <Text>
                 Color:
             </Text>

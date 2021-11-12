@@ -6,7 +6,7 @@ import {
 function Layout(props) {
     
     return (
-        <PanelBody title="Layout Type">
+        <PanelBody title="Layout Type" initialOpen={true}>
             hello     
         </PanelBody>
     );

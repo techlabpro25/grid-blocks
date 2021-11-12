@@ -33,7 +33,7 @@ function Pagination(props) {
         }
     ]
     return (
-        <PanelBody title="Pagination">
+        <PanelBody title="Pagination" initialOpen={false}>
 
             <ToggleControl
                 label="Show Pagination:"

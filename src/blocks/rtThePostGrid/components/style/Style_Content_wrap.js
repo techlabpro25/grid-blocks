@@ -11,7 +11,7 @@ import {useState} from '@wordpress/element';
 function Style_Content_wrap(props) {
     const { content_wrap, content_padding, constent_box_padding} = props.attr.attributes
     return (
-        <PanelBody title="Content Wrap">
+        <PanelBody title="Content Wrap" initialOpen={false}>
             <Text>
                 Background Color:
             </Text>

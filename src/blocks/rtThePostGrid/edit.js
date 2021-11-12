@@ -101,7 +101,7 @@ export default function Edit(props) {
     return (
         <>
             <InspectorControls>
-                <PanelBody className="post_grid_blocks" title={__("Post Grid Blocks", 'radius-blocks')}>
+                <PanelBody className="post_grid_blocks" title={__("The Post Grid", 'radius-blocks')}>
                     <TabPanel
                         className="custom-tab-panel"
                         activeClass="active-tab"

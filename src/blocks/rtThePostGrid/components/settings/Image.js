@@ -14,7 +14,7 @@ function Image(props) {
     const [ showimage, setShowimage ] = useState( true );
 
     return (
-        <PanelBody title="Image">
+        <PanelBody title="Image" initialOpen={false}>
             <ToggleControl
                 label="Show Image"
                 checked={ image.show_hide }

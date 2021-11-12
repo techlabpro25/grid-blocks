@@ -11,7 +11,7 @@ function Linking(props) {
     const {linking} = props.attr.attributes
     
     return (
-        <PanelBody title="Linking">
+        <PanelBody title="Linking" initialOpen={false}>
 
             <ToggleControl
                 label="Link to Page Details:"

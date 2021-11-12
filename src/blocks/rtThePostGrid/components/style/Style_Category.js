@@ -13,7 +13,7 @@ function Category(props) {
     const { category, category_style, category_padding, category_margin, } = props.attr.attributes
     const [hasicon, useHasicon] = useState(true)
     return (
-        <PanelBody title="Category">
+        <PanelBody title="Category" initialOpen={false}>
             
             <Text>
                 Color:
