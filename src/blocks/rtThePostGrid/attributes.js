@@ -1,7 +1,6 @@
 const attributes = {
-	limit: {
-		type: "number",
-		default: 10,
+	layout: {
+		type: "string",
 	},
 	query: {
 		type: "object",

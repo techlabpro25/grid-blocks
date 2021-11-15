@@ -166,8 +166,6 @@ const Query = (props) => {
 		});
 	}, []);
 
-	console.log(query);
-
 	return (
 		<>
 			<SelectControl

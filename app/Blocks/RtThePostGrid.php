@@ -28,13 +28,13 @@ class RtThePostGrid extends Block
 		]);
 	}
 
-	public static function render_callback($attributes)
+	public function render_callback($attributes)
 	{
 		$_attributes = array_merge(array_map(function ($attribute) {
 			return $attribute['default'];
 		}, $this->getAttributes()), $attributes);
 		wp_enqueue_script(RT_RADIUS_BLOCKS_SLUG . '-frontend-js');
-		//        }
+		    //    }
 		ob_start(); ?>
         <div class="rt-radius-blocks-ph rt-thepostgrid">
             <pre style="display: none;"><?php echo wp_json_encode($_attributes) ?></pre>

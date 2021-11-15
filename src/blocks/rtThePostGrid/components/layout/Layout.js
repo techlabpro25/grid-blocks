@@ -1,21 +1,22 @@
-import { PanelBody, RadioControl } from "@wordpress/components";
+import { PanelBody, SelectControl } from "@wordpress/components";
 import { useState } from "@wordpress/element";
-import list from './list.png';
 function Layout(props) {
+	const { layout } = props.attr.attributes;
 	const [option, setOption] = useState("a");
     return (
 			<PanelBody title="Layout Type" initialOpen={true}>
-				<RadioControl
-					label="Layouts:"
-					selected={option}
+				<SelectControl
+					label="Layout:"
 					options={[
-						{ label: "Grid", value: "a" },
-						{ label: "List", value: "e" },
-						{ label: "Isotope", value: "i" },
+						{label:"Grid", value:"grid"},
+						{label:"List", value:"list"},
+						{label:"Isotope", value:"isotope"},
 					]}
-					onChange={(value) => setOption(value)}
+					value={columns.desktop}
+					onChange={(val) =>
+						props.attr.setAttributes({ layout: val })
+					}
 				/>
-				<img src={list}/>
 			</PanelBody>
 		);
 }
