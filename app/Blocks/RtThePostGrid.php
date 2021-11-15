@@ -11,7 +11,7 @@ class RtThePostGrid extends Block
 	protected $attributes = [
 		'layout' => [
 			'type'=> "string",
-			'default' => "grid2"
+			'default' => "grid"
 		],
 	];
 
